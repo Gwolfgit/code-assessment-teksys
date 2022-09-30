@@ -42,8 +42,8 @@ def extract_multiple_patterns(file: TextIO) -> list:
 def extract_single_pattern(file: TextIO) -> list:
     """Extract file line by line using a single regex pattern"""
     results = []
+    regex = re.compile(single_pattern)
     for line in file.readlines():
-        regex = re.compile(single_pattern)
         for x in re.findall(regex, line):
             results += [
                 match for match in x
